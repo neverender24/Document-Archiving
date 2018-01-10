@@ -24,6 +24,19 @@ Route::resource('department','DepartmentController');
 Route::resource('category','CategoryController');
 Route::resource('drawer','DrawerController');
 Route::resource('document','DocumentController');
+
+Route::get('document/{search?}','DocumentController@index')->name('document.search');
+Route::get('inbox/{search?}','InboxController@index')->name('inbox.search');
+
+Route::resource('inbox','InboxController');
+Route::get('document/{document_id}/sending','InboxController@sending')->name('sending');
+
+Route::get('document/{document_id}/log','InboxController@log')->name('log');
+
+Route::post('document/{document_id}/sent','InboxController@sent')->name('sent');
+
+Route::post('document/{document_id}/receive/{id}','InboxController@receive')->name('receive');
+
 Route::resource('document.attachment','AttachmentController');
 Route::get('document/{document_id}/attachment/{attchement_id}/download','AttachmentController@download')->name('attachment.download');
 
@@ -58,4 +71,11 @@ Route::get('get-departments', function(){
 	$dept = \App\Department::where('college_id', $college_id)->get();
 
 	return $dept;
+});
+
+Route::get('noti', function(){
+
+	$inbox = App\Inbox::where('receiver_id', \Auth::user()->id)->where('received_at', '=', NULL)->count();
+
+	return $inbox;
 });

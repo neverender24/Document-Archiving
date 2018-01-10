@@ -15,7 +15,7 @@
     <link href="{{ mix('css/vendors.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -49,6 +49,7 @@
 
                         
                             <li><a href="{{ url('document') }}">Documents</a></li>
+                            <li><a href="{{ url('inbox') }}">Inbox <span id="noti" class="badge badge-danger hidden"></span></a></li>
                             @role('admin')
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -106,5 +107,18 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('footer_scripts')
+    
+    <script>
+        $.get('/noti', function(data) {
+            if(data != 0){
+                $('#noti').removeClass('hidden');
+                $('#noti').text(data);
+            }else{
+                $('#noti').text('0');
+                $('#noti').addClass('hidden');
+            }
+        });
+    </script>
+
 </body>
 </html>

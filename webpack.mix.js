@@ -11,9 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.js(['resources/assets/js/app.js','node_modules/select2/dist/js/select2.js'], 'public/js')
 .styles([
 		'node_modules/font-awesome/css/font-awesome.css',
+		'node_modules/select2/dist/css/select2.css'
 	], 'public/css/vendors.css')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .copy('node_modules/font-awesome/fonts', 'public/fonts');

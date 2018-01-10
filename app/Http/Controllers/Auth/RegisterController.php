@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Role;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -51,7 +52,6 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required',
         ]);
     }
 
@@ -63,12 +63,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        if(\Auth::user()->hasRole('level 0')){
+            $user_type = Role::where('name', 'level 1')->first();
+        }
+
+        if(\Auth::user()->hasRole('admin')){
+            $user_type = Role::where('id', $data['role'])->first();
+        }
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'position' => $data['position'],
-
+            'department_id' => isset($data['department_id'])?$data['department_id']:null,
+            'office_id' => isset($data['office_id'])?$data['office_id']:null,
         ]);
+
+        $user->attachRole($user_type);
+
+        return $user;
     }
 }

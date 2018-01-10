@@ -71,12 +71,13 @@
                                 @endif
                             </div>
                         </div>
+                         @endrole
 
                         <div class="form-group">
                             <label for="" class="col-md-4 control-label">Designation</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="role" id="designation">
+                                <select class="form-control" name="designation_id" id="designation">
                                     <option value="1">College</option>
                                     <option value="2">Office</option>
                                 </select>
@@ -88,7 +89,7 @@
 
                             <div class="col-md-6">
                                 <select class="form-control" name="office_id" id="offices">
-                                    
+                                    <option value="0"></option>
                                 </select>
                             </div>
                         </div>
@@ -98,7 +99,7 @@
 
                             <div class="col-md-6">
                                 <select class="form-control" name="college_id" id="colleges">
-                                    
+                                    <option value="0"></option>
                                 </select>
                             </div>
                         </div>
@@ -112,7 +113,7 @@
                                 </select>
                             </div>
                         </div>
-                        @endrole
+                       
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>

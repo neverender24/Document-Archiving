@@ -18,7 +18,14 @@ class Document extends Model
     	return $this->belongsTo('App\User');
     }
 
-    public function attachments(){
-        return $this->hasMany('App\Attachments');
+    public function attachments()
+    {
+        return $this->hasMany('App\Attachment');
     }
+
+    public function inbox()
+    {
+        return $this->belongsTo('App\Inbox', 'document_id');
+    }
+
 }

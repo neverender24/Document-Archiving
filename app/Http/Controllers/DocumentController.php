@@ -9,9 +9,11 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    	$data = Document::with('drawer')->with('user')->get();
+        $search = \Request::get('search');
+
+    	$data = Document::with('drawer')->with('user')->where('subject','like','%'.$search.'%')->get();
     	
     	return view('admin.document.index', compact('data'));
     }
@@ -36,11 +38,12 @@ class DocumentController extends Controller
 
     public function edit(Request $request, $id)
     {
+        $categories = Category::pluck('description','id')->toArray();
     	$drawers = Drawer::pluck('description','id')->toArray();
 
     	$edit = Document::findOrFail($id);
 
-    	return view('admin.document.edit', compact('edit','drawers'));
+    	return view('admin.document.edit', compact('edit','drawers','categories'));
     }
 
     public function update(Request $request, $id)

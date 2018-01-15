@@ -97,11 +97,13 @@
             </div>
         </nav>
         
-        @if(Session::has('success'))
-            <div class="alert alert-success"><em> {!! session('success') !!}</em></div>
-        @endif
+        <div class="col-md-8 col-md-offset-2">
+            @if(Session::has('success'))
+                <div class="alert alert-success"><em> {!! session('success') !!}</em></div>
+            @endif
 
-        @yield('content')
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
@@ -118,6 +120,12 @@
                 $('#noti').addClass('hidden');
             }
         });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
     </script>
 
 </body>

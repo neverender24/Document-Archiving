@@ -3,10 +3,12 @@
 @section('content')
 <h2>Inbox</h2>
 
-<form action="{{ route('inbox.search') }}" method="get">
-	Search
-<input type="text" name="search" class="form-control">
-<input type="submit" value="Search">
+
+<form action="{{ route('inbox.search') }}" method="get" class="form-inline">
+	<div class="form-group pull-right">
+		<input type="text" name="search" class="form-control" placeholder="Search">
+	</div>
+	<button type="submit" class="btn btn-default pull-right"><span class="fa fa-search"></span></button>
 </form>
 
 <table class="table table-stripe">

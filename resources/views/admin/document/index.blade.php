@@ -2,13 +2,16 @@
 
 @section('content')
 <h2>List of Documents</h2>
-<a href="{{ route('document.create') }}" class="btn btn-primary"> Add</a>
 
-<form action="{{ route('document.search') }}" method="get">
-	Search
-<input type="text" name="search" class="form-control">
-<input type="submit" value="Search">
+
+<form action="{{ route('document.search') }}" method="get" class="form-inline">
+	<a href="{{ route('document.create') }}" class="btn btn-primary right"> Add </a>
+	<div class="form-group pull-right">
+		<input type="text" name="search" class="form-control" placeholder="Search">
+	</div>
+	<button type="submit" class="btn btn-default pull-right"><span class="fa fa-search"></span></button>
 </form>
+
 
 <table class="table table-stripe">
 	<thead>
@@ -19,7 +22,6 @@
 			<th>Catgeory</th>
 			<th>User</th>
 			<th>Created</th>
-			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -33,21 +35,24 @@
 					<td>{{ $d->drawer->category->description }}</td>
 					<td>{{ $d->user->name }}</td>
 					<td>{{ $d->created_at }}</td>
-					@if($d->user_id == \Auth::user()->id && $d->is_private == 1)
-						<td><a href="{{ route('sending', $d->id) }}" class="btn btn-primary"> Send</a></td>
-					@else
-						<td><a href="" class="btn btn-primary" disabled> Send</a></td>
-					@endif
-					<td><a href="{{ route('log',$d->id) }}" class="btn btn-primary"> Log</a></td>
-					<td><a href="{{ route('document.attachment.index', $d->id ) }}" class="btn btn-primary"> Attachments</a></td>
-					<td><a href="{{ route('document.edit', $d->id ) }}" class="btn btn-primary"> Edit</a></td>
 					<td>
-						<form action="{{ route('document.destroy', $d->id ) }}" method="post">
-							{{ csrf_field() }}
-							{{ method_field('delete') }}
-							<input type="submit" value="Delete" class="btn btn-danger">
-						</form>
+						<div class="btn-group" role="group" aria-label="Basic example">
+						  <form action="{{ route('document.destroy', $d->id ) }}" method="post" class="in-line" >
+						  	{{ csrf_field() }}
+						  	{{ method_field('delete') }}
+							  	@if($d->user_id == \Auth::user()->id && $d->is_private == 1)
+							  		<a href="{{ route('sending', $d->id) }}" data-toggle="tooltip" title="Send" class="btn btn-primary"><span class="fa fa-send"></span></a>
+							  	@else
+							  		<a href="" class="btn btn-primary" data-toggle="tooltip" title="Send" disabled><span class="fa fa-send"></span></a>
+							  	@endif
+						  		<a href="{{ route('document.attachment.index', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Attachments"> <span class="fa fa-paperclip"></span></a>
+						  		<a href="{{ route('log',$d->id) }}" class="btn btn-primary" data-toggle="tooltip" title="Log"><span class="fa fa-history"></span></a>
+						  		<a href="{{ route('document.edit', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span></a>
+						  	<button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Delete"><span class="fa fa-trash"></span></button>
+						  </form>
+						</div>
 					</td>
+
 				</tr>
 			@endif
 		@endforeach

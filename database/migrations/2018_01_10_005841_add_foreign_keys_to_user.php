@@ -15,7 +15,6 @@ class AddForeignKeysToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('department_id')->nullable();
-            $table->integer('office_id')->nullable();
         });
     }
 
@@ -28,7 +27,6 @@ class AddForeignKeysToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('department_id');
-            $table->integer('office_id');
         });
     }
 }

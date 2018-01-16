@@ -17,10 +17,10 @@
 		<div class="form-group col-md-12">
 			<label>Drawer
 				<select name="drawer_id" id="drawer_id" class="form-control">
-					<option value=""></option>
+					{{-- <option value=""></option>
 					@foreach($drawers as $id => $description)
 						<option value="{{ $id }}">{{ $description }}</option>
-					@endforeach
+					@endforeach --}}
 				</select>
 			</label>
 		</div>

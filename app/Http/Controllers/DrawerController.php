@@ -25,6 +25,8 @@ class DrawerController extends Controller
     public function store(Request $request)
     {
         $request['user_id'] = \Auth::user()->id;
+        $request['office_id'] = \Auth::user()->office_id;
+        $request['department_id'] = \Auth::user()->department_id;
 
     	$create = Drawer::create($request->all());
 

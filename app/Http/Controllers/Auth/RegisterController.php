@@ -76,8 +76,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'position' => $data['position'],
-            'department_id' => isset($data['department_id'])?$data['department_id']:null,
-            'office_id' => isset($data['office_id'])?$data['office_id']:null,
+            'department_id' => isset($data['department_id'])?$data['department_id']:\Auth::user()->department_id,
+            'office_id' => isset($data['office_id'])?$data['office_id']:\Auth::user()->office_id,
         ]);
 
         $user->attachRole($user_type);

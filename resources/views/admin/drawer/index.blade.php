@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>List of Departments</h2>
+<h2>List of Drawers</h2>
 <a href="{{ route('drawer.create') }}" class="btn btn-primary"> Add</a>
 <table class="table table-stripe">
 	<thead>

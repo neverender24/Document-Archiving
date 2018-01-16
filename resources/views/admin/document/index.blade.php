@@ -1,17 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 <h2>List of Documents</h2>
 
 
 <form action="{{ route('document.search') }}" method="get" class="form-inline">
-	<a href="{{ route('document.create') }}" class="btn btn-primary right"> Add </a>
-	<div class="form-group pull-right">
+	<a href="{{ route('document.create') }}" class="btn btn-primary left"> Add </a>
+
+	<div class="form-group pull-left">
 		<input type="text" name="search" class="form-control" placeholder="Search">
-	</div>
 	<button type="submit" class="btn btn-default pull-right"><span class="fa fa-search"></span></button>
+	</div>
+
+
 </form>
 
+
+<div class="row" >
+        <div class="col-md-10 col-md-offset-0">
+            <div class="panel panel-default">
 
 <table class="table table-stripe">
 	<thead>
@@ -22,6 +30,7 @@
 			<th>Catgeory</th>
 			<th>User</th>
 			<th>Created</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -58,4 +67,9 @@
 		@endforeach
 	</tbody>
 
+     </div>
+        </div>
+    </div>
+    </table>
+    </div>
 @endsection

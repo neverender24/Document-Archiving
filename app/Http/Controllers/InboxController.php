@@ -36,6 +36,7 @@ class InboxController extends Controller
 
     public function sent(Request $request, $document_id)
     {
+        \Session::flash('success','Document sent');
 
     	foreach($request['docs'] as $id) 
     	{

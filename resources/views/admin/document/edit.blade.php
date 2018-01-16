@@ -38,9 +38,10 @@
 				<input type="text" name="subject" class="form-control" value="{{ old('subject', $edit->subject ) }}>
 			</label>
 		</div>
+		
 		<div class="form-group col-md-12">
 		<label>Content
-			<<textarea  name="content" class="form-control" value="{{ old('content', $edit->content ) }}"></textarea>
+			<textarea  name="content" class="form-control" value="{{ old('content', $edit->content ) }}"></textarea>
 		</label>
 		</div>
 		<div class="form-group col-md-12">

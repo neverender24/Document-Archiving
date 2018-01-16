@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <title>USEP CRMS</title>
+    <!--<title>{{ config('app.name', 'USEP_CRMS') }}</title>-->
+    <!-- Styles -->
 
-        <!-- Styles -->
-        <style>
+ <style>
             html, body {
-                background-color: #fff;
+               
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -29,6 +30,7 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                 background-color: #323332;
             }
 
             .position-ref {
@@ -39,20 +41,32 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+
+
             }
 
             .content {
                 text-align: center;
+                
+                width: 220vh;
+           
+           
+             float: left;
+            
+            background-color: #9a0000;
+              height: 90vh;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 50px;
+                text-align: right;
+                 padding: 0 25px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #323332;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 15px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -62,33 +76,69 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .t-b-md {
+                margin-bottom: -65px;
+            }
+
+
         </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                    @endauth
+
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/vendors.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- Branding Image -->
+                    <b><a class="navbar-brand" href="{{ url('#') }}">
+                     <!--   {{ config('app.name', 'USEP_CRMS') }} -->
+                     USEP CENTRALIZE RECORD MANAGEMENT SYSYTEM
+                    </a></b>
                 </div>
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav ">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+
+                          @if (Route::has('login'))
+               
+                    @auth
+                        <li><b><a href="{{ url('/home') }}">Home</a></b></li>
+                    @else
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                    @endauth
+             
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                        
+                    </ul>
                 </div>
             </div>
-        </div>
-    </body>
+        </nav>
+        
+        
+    </div>
+
+    
+    
+
+</body>
 </html>

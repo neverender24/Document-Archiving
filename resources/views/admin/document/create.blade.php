@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Add Colleges</h2>
+<h2>Add Documents</h2>
 	<form action="{{ route('document.store') }}" method="post">
 		{{ csrf_field() }}
 		<div class="form-group col-md-12">
@@ -31,7 +31,7 @@
 		</div>
 		<div class="form-group col-md-12">
 		<label>Content
-			<<textarea  name="content" class="form-control"></textarea>
+			<textarea  name="content" class="form-control"></textarea>
 		</label>
 		</div>
 		<div class="form-group col-md-12">

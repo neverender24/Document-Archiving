@@ -1,15 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 <h2>Inbox</h2>
 
 
 <form action="{{ route('inbox.search') }}" method="get" class="form-inline">
-	<div class="form-group pull-right">
+	<div class="form-group pull-left">
 		<input type="text" name="search" class="form-control" placeholder="Search">
 	</div>
-	<button type="submit" class="btn btn-default pull-right"><span class="fa fa-search"></span></button>
+	<button type="submit" class="btn btn-default pull-left"><span class="fa fa-search"></span></button>
 </form>
+
+<div class="row" >
+        <div class="col-md-10 col-md-offset-0">
+            <div class="panel panel-default">
 
 <table class="table table-stripe">
 	<thead>
@@ -55,5 +60,9 @@
 				</tr>
 		@endforeach
 	</tbody>
-
+	
+	</div>
+        </div>
+    </div>
+</table>
 @endsection

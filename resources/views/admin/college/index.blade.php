@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 <h2>List of Colleges</h2>
 <a href="{{ route('college.create') }}" class="btn btn-primary"> Add</a>
+<div class="row" >
+        <div class="col-md-10 col-md-offset-0">
+            <div class="panel panel-default">
 <table class="table table-stripe">
 	<thead>
 		<tr>
 			<th>Description</th>
 			<th>Prefix</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,5 +31,9 @@
 			</tr>
 		@endforeach
 	</tbody>
+	</div>
+        </div>
+    </div>
+	</table>
 
 @endsection

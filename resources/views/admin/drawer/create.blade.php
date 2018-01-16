@@ -5,7 +5,7 @@
 	<form action="{{ route('drawer.store') }}" method="post">
 		{{ csrf_field() }}
 		<div class="form-group col-md-12">
-			<label>College
+			<label>Category
 				<select name="category_id" id="" class="form-control">
 					<option value=""></option>
 					@foreach($categories as $id => $description)

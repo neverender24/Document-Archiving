@@ -46,7 +46,7 @@
 		</div>
 		<div class="form-group col-md-12">
 		<label>Confidential
-			<input type="checkbox" name="is_private" class="form-control" value="1" @if(old('is_private', $edit->content)) checked @endif>
+			<input type="checkbox" name="is_private" class="form-control" value="1" @if(old('is_private', $edit->is_private)) checked @endif>
 		</label>
 		</div>
 		<div class="form-group col-md-5">

@@ -70,4 +70,14 @@ class InboxController extends Controller
 
     	return view('admin.document.log', compact('data'));
     }
+
+    public function destroy($id)
+    {
+        $delete = Inbox::findOrFail($id);
+        $delete->delete();
+
+        \Session::flash('success','Document Deleted');
+
+        return redirect('/inbox');
+    }
 }

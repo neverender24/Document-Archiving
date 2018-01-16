@@ -31,7 +31,18 @@ class DocumentController extends Controller
     public function create()
     {
     	$categories = Category::pluck('description','id')->toArray();
-    	$drawers = Drawer::where('user_id', \Auth::user()->id)->pluck('description','id')->toArray();
+        
+    	$drawers = Drawer::pluck('description','id');
+
+        if(is_null(\Auth::user()->office_id)){
+            $drawers->where('office_id', \Auth::user()->office_id);
+        }
+
+        if(is_null(\Auth::user()->department_id)){
+            $drawers->where('department_id', \Auth::user()->department_id);
+        }
+
+        $drawers = $drawers->toArray();
 
     	return view('admin.document.create', compact('drawers', 'categories'));
     }
@@ -50,10 +61,19 @@ class DocumentController extends Controller
     {
         $categories = Category::pluck('description','id')->toArray();
 
-
     	$edit = Document::findOrFail($id);
 
-        $drawers = Drawer::pluck('description','id')->toArray();
+        $drawers = Drawer::pluck('description','id');
+
+        if(is_null(\Auth::user()->office_id)){
+            $drawers->where('office_id', \Auth::user()->office_id);
+        }
+
+        if(is_null(\Auth::user()->department_id)){
+            $drawers->where('department_id', \Auth::user()->department_id);
+        }
+
+        $drawers = $drawers->toArray();
 
     	return view('admin.document.edit', compact('edit','drawers','categories'));
     }

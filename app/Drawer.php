@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Drawer extends Model
 {
-    protected $fillable = ['description', 'prefix', 'subject', 'category_id', 'user_id'];
+    protected $fillable = ['description', 'prefix', 'subject', 'category_id', 'user_id', 'department_id', 'office_id'];
 
     public function category()
     {

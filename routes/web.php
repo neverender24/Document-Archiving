@@ -44,7 +44,17 @@ Route::get('drawers', function(){
 
 	$category_id = \Request::get('category_id');
 
-	$drawers = \App\Drawer::where('category_id', $category_id)->get();
+	$drawers = \App\Drawer::where('category_id',$category_id);
+
+	if(!is_null(\Auth::user()->office_id)){
+	    $drawers->where('office_id', \Auth::user()->office_id);
+	}
+
+	if(!is_null(\Auth::user()->department_id)){
+	    $drawers->where('department_id', \Auth::user()->department_id);
+	}
+
+	$drawers = $drawers->get();
 
 	return $drawers;
 });

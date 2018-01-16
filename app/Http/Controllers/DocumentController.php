@@ -49,9 +49,11 @@ class DocumentController extends Controller
     public function edit(Request $request, $id)
     {
         $categories = Category::pluck('description','id')->toArray();
-    	$drawers = Drawer::where('user_id', \Auth::user()->id)->pluck('description','id')->toArray();
+
 
     	$edit = Document::findOrFail($id);
+
+        $drawers = Drawer::pluck('description','id')->toArray();
 
     	return view('admin.document.edit', compact('edit','drawers','categories'));
     }

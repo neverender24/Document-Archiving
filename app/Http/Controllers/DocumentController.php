@@ -13,8 +13,18 @@ class DocumentController extends Controller
     {
         $search = \Request::get('search');
 
-    	$data = Document::with('drawer')->with('user')->where('subject','like','%'.$search.'%')->get();
+    	$data = Document::with('drawer')->with('user');
+
+        if(!is_null($search)){
+            $data->where('subject','like','%'.$search.'%');
+        }
+
+        if(!is_null(\Request::get('drawer_id'))){
+            $data->orWhere('drawer_id', \Request::get('drawer_id'));
+        }
     	
+        $data = $data->get();
+
     	return view('admin.document.index', compact('data'));
     }
 

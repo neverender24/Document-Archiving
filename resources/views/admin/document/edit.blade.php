@@ -35,7 +35,7 @@
 		</div>
 		<div class="form-group col-md-12">
 			<label>Subject
-				<input type="text" name="subject" class="form-control" value="{{ old('subject', $edit->subject ) }}>
+				<input type="text" name="subject" class="form-control" value="{{ old('subject', $edit->subject ) }}">
 			</label>
 		</div>
 		

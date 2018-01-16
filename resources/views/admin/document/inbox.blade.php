@@ -51,7 +51,7 @@
 					</td>
 					<td><a href="{{ route('document.attachment.index', $d->document_id ) }}" class="btn btn-primary"> Attachments</a></td>
 					<td>
-						<form action="{{ route('document.destroy', $d->id ) }}" method="post">
+						<form action="{{ route('inbox.destroy', $d->id ) }}" method="post">
 							{{ csrf_field() }}
 							{{ method_field('delete') }}
 							<input type="submit" value="Delete" class="btn btn-danger">

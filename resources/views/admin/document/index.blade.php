@@ -40,7 +40,7 @@
 						  <form action="{{ route('document.destroy', $d->id ) }}" method="post" class="in-line" >
 						  	{{ csrf_field() }}
 						  	{{ method_field('delete') }}
-							  	@if($d->user_id == \Auth::user()->id && $d->is_private == 1)
+							  	@if($d->user_id == \Auth::user()->id)
 							  		<a href="{{ route('sending', $d->id) }}" data-toggle="tooltip" title="Send" class="btn btn-primary"><span class="fa fa-send"></span></a>
 							  	@else
 							  		<a href="" class="btn btn-primary" data-toggle="tooltip" title="Send" disabled><span class="fa fa-send"></span></a>

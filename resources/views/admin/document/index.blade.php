@@ -31,8 +31,8 @@
 				<tr>
 					<td>{{ $d->subject }}</td>
 					<td>{{ $d->content }}</td>
-					<td>{{ $d->drawer->description }}</td>
-					<td>{{ $d->drawer->category->description }}</td>
+					<td><a href="{{ url('document?drawer_id='.$d->drawer->id) }}" >{{ $d->drawer->description }}</a></td>
+					<td><a href="{{ url('document?drawer_id='.$d->drawer->category->id) }}" >{{ $d->drawer->category->description }}</a></td>
 					<td>{{ $d->user->name }}</td>
 					<td>{{ $d->created_at }}</td>
 					<td>

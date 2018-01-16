@@ -49,18 +49,20 @@
                         
                             <li><a href="{{ url('document') }}">Documents</a></li>
                             <li><a href="{{ url('inbox') }}">Inbox <span id="noti" class="badge badge-danger hidden"></span></a></li>
-                            @role('admin')
+                            @role(['admin','level 0'])
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     <span class="fa fa-gear"></span> Settings <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    @role('admin')
                                     <li><a href="{{ url('college') }}"> Colleges</a></li>
                                     <li><a href="{{ url('department') }}"> Departments</a></li>
                                     <li><a href="{{ url('office') }}"> Offices</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{{ url('category') }}"> Document Categories</a></li>
+                                    @endrole
                                     <li><a href="{{ url('drawer') }}"> Document Drawers</a></li>
                                 </ul>
                             </li>

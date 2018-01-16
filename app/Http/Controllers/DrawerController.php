@@ -10,7 +10,7 @@ class DrawerController extends Controller
 {
     public function index()
     {
-    	$data = Drawer::with('category')->get();
+    	$data = Drawer::with('category')->where('user_id', \Auth::user()->id)->get();
 
     	return view('admin.drawer.index', compact('data'));
     }
@@ -24,6 +24,8 @@ class DrawerController extends Controller
 
     public function store(Request $request)
     {
+        $request['user_id'] = \Auth::user()->id;
+
     	$create = Drawer::create($request->all());
 
     	\Session::flash('success','Drawer Added');
@@ -43,6 +45,8 @@ class DrawerController extends Controller
     public function update(Request $request, $id)
     {
     	$update = Drawer::findOrFail($id);
+
+        $request['user_id'] = \Auth::user()->id;
 
     	$update->update($request->all());
 

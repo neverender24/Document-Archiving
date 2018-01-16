@@ -15,9 +15,9 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('subject');
-            $table->string('content');
-            $table->boolean('is_private');
+            $table->string('subject')->nullable();
+            $table->string('content')->nullable();
+            $table->boolean('is_private')->nullable();
             $table->integer('drawer_id')->unsigned;
             $table->integer('user_id')->unsigned;
             $table->timestamps();

@@ -42,13 +42,13 @@
 						  	{{ method_field('delete') }}
 							  	@if($d->user_id == \Auth::user()->id)
 							  		<a href="{{ route('sending', $d->id) }}" data-toggle="tooltip" title="Send" class="btn btn-primary"><span class="fa fa-send"></span></a>
-							  	@else
-							  		<a href="" class="btn btn-primary" data-toggle="tooltip" title="Send" disabled><span class="fa fa-send"></span></a>
-							  	@endif
+							  	
+							  	
 						  		<a href="{{ route('document.attachment.index', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Attachments"> <span class="fa fa-paperclip"></span></a>
 						  		<a href="{{ route('log',$d->id) }}" class="btn btn-primary" data-toggle="tooltip" title="Log"><span class="fa fa-history"></span></a>
 						  		<a href="{{ route('document.edit', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span></a>
 						  	<button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Delete"><span class="fa fa-trash"></span></button>
+						  	@endif
 						  </form>
 						</div>
 					</td>

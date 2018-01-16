@@ -16,7 +16,7 @@
 	
 		@foreach($data as $d)
 			<tr>
-				<td>{{ $d->description }}</td>
+				<td><a href="{{ url('document?drawer_id='.$d->id) }}" >{{ $d->description }}</a></td>
 				<td>{{ $d->prefix }}</td>
 				<td>{{ $d->subject }}</td>
 				<td>{{ $d->category->description }}</td>

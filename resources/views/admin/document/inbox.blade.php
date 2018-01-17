@@ -32,11 +32,11 @@
 		@foreach($data as $d)
 
 				<tr>
-					<td>{{ $d->created_at }}</td>
+					<td>{{ \Carbon\Carbon::parse($d->created_at)->format('Y-m-d g:i A') }}</td>
 					<td>{{ $d->name }}</td>
 					<td>{{ $d->subject }}</td>
 					<td>{{ $d->content }}</td>
-					<td>{{ $d->received_at }}</td>
+					<td>{{ \Carbon\Carbon::parse($d->received_at)->format('Y-m-d g:i A')  }}</td>
 					<td>
 						<form action="{{ route('receive', [$d->document_id, $d->id] ) }}" method="post">
 							{{ csrf_field() }}
@@ -49,7 +49,15 @@
 							
 						</form>
 					</td>
-					<td><a href="{{ route('document.attachment.index', $d->document_id ) }}" class="btn btn-primary"> Attachments</a></td>
+					<td><a href="{{ route('document.attachment.index', $d->document_id ) }}" class="btn btn-primary 
+							@if(is_null($d->received_at))
+								disabled
+							@endif
+						"
+						
+						
+						
+						> Attachments</a></td>
 					<td>
 						<form action="{{ route('inbox.destroy', $d->id ) }}" method="post">
 							{{ csrf_field() }}

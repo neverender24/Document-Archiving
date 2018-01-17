@@ -41,12 +41,12 @@
 		
 		<div class="form-group col-md-12">
 		<label>Content
-			<textarea  name="content" class="form-control" value="{{ old('content', $edit->content ) }}"></textarea>
+			<textarea  name="content" class="form-control">{{ old('content', $edit->content ) }}</textarea>
 		</label>
 		</div>
 		<div class="form-group col-md-12">
 		<label>Confidential
-			<input type="checkbox" name="is_private" class="form-control" value="1" @if(old('is_private', $edit->is_private)) checked @endif>
+			<input type="checkbox" name="is_private" class="form-control" value="{{ old('is_private', $edit->is_private ) }}" @if(old('is_private', $edit->is_private)) checked @endif>
 		</label>
 		</div>
 		<div class="form-group col-md-5">

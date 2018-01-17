@@ -27,8 +27,9 @@ class DocumentController extends Controller
         if(!is_null(\Request::get('drawer_id'))){
             $data->orWhere('drawer_id', \Request::get('drawer_id'));
         }
-    	
+        
         $data = $data->get();
+        
 
     	return view('admin.document.index', compact('data'));
     }
@@ -85,6 +86,12 @@ class DocumentController extends Controller
 
     public function update(Request $request, $id)
     {
+        if(is_null($request['is_private'])){
+            $request['is_private'] = 0;
+        }else{
+            $request['is_private'] = 1;
+        }
+
     	$update = Document::findOrFail($id);
 
     	$update->update($request->all());

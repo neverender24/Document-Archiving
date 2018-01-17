@@ -43,16 +43,17 @@
 					<td><a href="{{ url('document?drawer_id='.$d->drawer->id) }}" >{{ $d->drawer->description }}</a></td>
 					<td><a href="{{ url('document?drawer_id='.$d->drawer->category->id) }}" >{{ $d->drawer->category->description }}</a></td>
 					<td>{{ $d->user->name }}</td>
-					<td>{{ $d->created_at }}</td>
+					<td>{{ \Carbon\Carbon::parse($d->created_at)->format('Y-m-d g:i A') }}</td>
 					<td>
 						<div class="btn-group" role="group" aria-label="Basic example">
 						  <form action="{{ route('document.destroy', $d->id ) }}" method="post" class="in-line" >
 						  	{{ csrf_field() }}
 						  	{{ method_field('delete') }}
+						  		
 							  	@if($d->user_id == \Auth::user()->id)
 							  		<a href="{{ route('sending', $d->id) }}" data-toggle="tooltip" title="Send" class="btn btn-primary"><span class="fa fa-send"></span></a>
 							  	
-						  		<a href="{{ route('document.attachment.index', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Attachments"> <span class="fa fa-paperclip"></span></a>
+						  		
 						  		<a href="{{ route('log',$d->id) }}" class="btn btn-primary" data-toggle="tooltip" title="Log"><span class="fa fa-history"></span></a>
 						  		<a href="{{ route('document.edit', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span></a>
 						  	<button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Delete"><span class="fa fa-trash"></span></button>

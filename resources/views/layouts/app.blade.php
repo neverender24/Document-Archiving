@@ -78,7 +78,7 @@
                                     @role(['admin','level 0'])
                                     <li><a href="{{ url('/register') }}"> Register User</a></li>
                                     @endrole
-
+                                    <li><a href="{{ route('change-password') }}"> Change Password</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

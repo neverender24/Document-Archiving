@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Attachment;
+use App\Document;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -15,9 +16,12 @@ class AttachmentController extends Controller
 
     public function index($document_id)
     {
-    	$data = Attachment::where('document_id', $document_id)->get();
 
-    	return view('admin.attachment.index', compact('data', 'document_id'));
+    	$data = Attachment::where('document_id', $document_id)->get();
+        $user = Document::where('id', $document_id)->first();
+        $user = $user->user_id;
+
+    	return view('admin.attachment.index', compact('data', 'document_id', 'user'));
     }
 
     public function create($document_id)

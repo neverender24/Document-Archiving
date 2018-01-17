@@ -15,6 +15,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('change-password', function(){
+    return view('auth/change');
+})->name('change-password');
+
+Route::post('change-password/update', function(){
+
+   $old     = \Request::get('old-password');
+   $new     = \Request::get('new-password');
+   $confirm = \Request::get('password_confirmation');
+
+    if (!Hash::check($old, \Auth::user()->password))
+    {
+        \Session::flash('flash_message_delete','Old password incorrect.');
+        return view('auth/change-password');
+    }
+
+    if($new !== $confirm)
+    {
+        \Session::flash('flash_message_delete','New password not match with confirm password.');
+        return view('auth/change-password');
+    }
+
+    $user = App\User::findOrFail( \Auth::user()->id);
+    $user->password = bcrypt($new);
+    $user->save();
+    \Session::flash('flash_message','Password updated.');
+    return redirect('/home');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

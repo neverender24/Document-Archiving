@@ -8,6 +8,7 @@
 		<tr>
 			<th>Description</th>
 			<th>Prefix</th>
+			<th>Colleges</th>
 		</tr>
 	</thead>
 	<tbody>

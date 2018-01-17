@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class DrawerController extends Controller
 {
+
+ public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
     	$data = Drawer::with('category')->where('user_id', \Auth::user()->id)->get();

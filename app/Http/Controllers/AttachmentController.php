@@ -8,6 +8,11 @@ use Storage;
 
 class AttachmentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($document_id)
     {
     	$data = Attachment::where('document_id', $document_id)->get();

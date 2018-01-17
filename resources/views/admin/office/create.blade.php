@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Add Colleges</h2>
+<h2>Add Office</h2>
 	<form action="{{ route('office.store') }}" method="post">
 		{{ csrf_field() }}
 		<div class="form-group col-md-5">

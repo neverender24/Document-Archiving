@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Add Colleges</h2>
+<h2>Add Department</h2>
 	<form action="{{ route('department.update', $edit->id) }}" method="post">
 		{{ csrf_field() }}
 		{{ method_field('patch') }}
@@ -29,11 +29,12 @@
 			<input type="text" name="prefix" class="form-input" value="{{ old('prefix', $edit->prefix) }}">
 		</label>
 		</div>
+		<!--
 		<div class="form-group col-md-12">
 		<label>Subject
 			<input type="text" name="subject" class="form-control">
 		</label>
-		</div>
+		</div> -->
 		<div class="form-group col-md-12">
 			<input type="submit" class="btn btn-primary" value="update">
 		</div>

@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class InboxController extends Controller
 {
+
+ public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $search = \Request::get('search');

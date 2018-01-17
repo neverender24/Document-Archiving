@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Add Colleges</h2>
+<h2>Add Department</h2>
 	<form action="{{ route('department.store') }}" method="post">
 		{{ csrf_field() }}
 		<div class="form-group col-md-12">

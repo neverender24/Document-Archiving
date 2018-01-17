@@ -27,7 +27,7 @@
 			<th>Subject</th>
 			<th>Content</th>
 			<th>Drawer</th>
-			<th>Catgeory</th>
+			<th>Category</th>
 			<th>User</th>
 			<th>Created</th>
 			<th>Action</th>

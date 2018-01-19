@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -80,8 +80,13 @@ class RegisterController extends Controller
             'office_id' => isset($data['office_id'])?$data['office_id']:\Auth::user()->office_id,
         ]);
 
-        $user->attachRole($user_type);
+       // $user->attachRole($user_type);
 
-        return $user;
+       // return $user;
+
+        \Session::flash('success','Account Added');
+
+       
+
     }
 }

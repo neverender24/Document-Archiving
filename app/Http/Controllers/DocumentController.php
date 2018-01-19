@@ -50,7 +50,8 @@ class DocumentController extends Controller
 
         $drawers = $drawers->toArray();
 
-    	return view('admin.document.create', compact('drawers', 'categories'));
+    	//return view('admin.document.create', compact('drawers', 'categories'));
+        return view('admin.document.create', compact('drawers', 'categories'));
     }
 
     public function store(Request $request)
@@ -61,6 +62,7 @@ class DocumentController extends Controller
     	\Session::flash('success','Document Added');
 
     	return redirect('/document');
+       
     }
 
     public function edit(Request $request, $id)

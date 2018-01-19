@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 <h2>List of Office</h2>
 <a href="{{ route('office.create') }}" class="btn btn-primary"> Add</a>
+<div class="row" >
+        <div class="col-md-10 col-md-offset-0">
+            <div class="panel panel-default">
 <table class="table table-stripe">
 	<thead>
 		<tr>
@@ -26,5 +30,12 @@
 			</tr>
 		@endforeach
 	</tbody>
+	
+	</div>
+	</div>
+	</div>
+	</table>
+	</div>
+
 
 @endsection

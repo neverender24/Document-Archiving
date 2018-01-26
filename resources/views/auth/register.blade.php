@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-1">
+        <div class="col-md-12 col-md-offset-0">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading"><h4><b>Register</b></h4></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -59,9 +59,10 @@
 
                             <div class="col-md-6">
                                 <select class="form-control" name="role">
-                                    <option value="1">Admin</option>
+                                   
                                     <option value="2">Level 0</option>
                                     <option value="3">Level 1</option>
+
                                 </select>
 
                                 @if ($errors->has('role'))
@@ -69,6 +70,7 @@
                                         <strong>{{ $errors->first('role') }}</strong>
                                     </span>
                                 @endif
+
                             </div>
                         </div>
                          
@@ -85,6 +87,7 @@
                         </div>
 
                         <div class="office form-group hidden">
+
                             <label for="" class="col-md-4 control-label">Office</label>
 
                             <div class="col-md-6">
@@ -151,7 +154,6 @@
     </div>
 </div>
 @endsection
-
 @section('footer_scripts')
 
     <script>

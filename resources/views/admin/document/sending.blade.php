@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Preparing to send</h2>
+<h2 style="color:white">Preparing to send</h2>
 
 <form action="{{ route('sent', $document_id) }}" method="post">
 	{{ csrf_field() }}
 <div class="form-group">
-	<label for="">To:</label>
+	<label style="color:white"; for="">To:</label>
 	<select class="js-example-basic-single" name="docs[]" multiple="multiple">
 		@foreach($users as $id => $description)
 			<option value="{{ $id }}">{{ $description }}</option>

@@ -44,12 +44,13 @@ class AttachmentController extends Controller
 	    	foreach ($files as $file) 
 	    	{
 		    	 // random generated characters by FileUpload, 9 characters
-		    	 $new_name = $file->getFilename();
+		    	 //$new_name = $file->getFilename();
+                  $new_name = $file->getClientOriginalName();
 		    	 // get file extenstion
-		    	 $extension = $file->extension();
+		    	// $extension = $file->extension();
 		    	 
-		    	 $filename = $new_name.".".$extension;
-		    	 
+		    	 //$filename = $new_name.".".$extension;
+		    	 $filename = $new_name;
 		    	 // check then replace if filename exists. Only the 9 character name.
 		    	 while( $contents->exists($filename) )
 		    	 {
@@ -58,7 +59,7 @@ class AttachmentController extends Controller
 		    	 }
 		    	 //upload image in the disk storage base in your filesystems config probably public/images/quizzes
 		    	 $contents->put(
-		    	 \Auth::user()->id."/".$filename,
+		    	 $document_id."/".$filename,
 		    	 file_get_contents($file->getRealPath())
 		    	 );
 
@@ -66,6 +67,7 @@ class AttachmentController extends Controller
 		    	 $attachment->name = $filename;
 		    	 $attachment->document_id = $document_id;
 		    	 $attachment->save();
+
 
 	    	}
     	}
@@ -85,10 +87,29 @@ class AttachmentController extends Controller
     {
         $attachment = Attachment::findOrFail($attachment_id);
 
-        $file = storage_path() .'/app/public/'.\Auth::user()->id.'/'.$attachment->name;
+        $file = storage_path() .'/app/public/'.$attachment->document_id.'/'.$attachment->name;
+        //$file = storage_path() .'/app/public/'.\Auth::user()->id.'/'.$attachment->name;
 
         //return($file);
 
         return response()->download($file, $attachment->filename);
     }
+
+
+     public function viewers($document_id,$attachment_id)
+    {
+    $attachment = Attachment::findOrFail($attachment_id);
+
+        $file = storage_path() .'/app/public/'.$attachment->document_id.'/'.$attachment->name;
+
+    return response()->file($file);
+
+//return response()->file($file, $headers);
+
+        
+    }
+  
+
+
+
 }

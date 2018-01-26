@@ -1,17 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-<h2>List of Office</h2>
+<div class="container-fluid">
+<h2 style="color:white"></h2>
 <a href="{{ route('office.create') }}" class="btn btn-primary"> Add</a>
 <div class="row" >
-        <div class="col-md-10 col-md-offset-0">
+        <div class="col-md-12 col-md-offset-0">
             <div class="panel panel-default">
+   <div class="panel-heading"><h4><b>List of Office</b></h4></div>            
 <table class="table table-stripe">
 	<thead>
-		<tr>
+		<tr class="bg-primary">
 			<th>Description</th>
 			<th>Prefix</th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>

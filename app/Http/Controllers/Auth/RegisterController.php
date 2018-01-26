@@ -63,6 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         if(\Auth::user()->hasRole('level 0')){
             $user_type = Role::where('name', 'level 1')->first();
         }
@@ -80,7 +81,7 @@ class RegisterController extends Controller
             'office_id' => isset($data['office_id'])?$data['office_id']:\Auth::user()->office_id,
         ]);
 
-       // $user->attachRole($user_type);
+        $user->attachRole($user_type);
 
        // return $user;
 

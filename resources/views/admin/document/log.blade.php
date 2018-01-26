@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Forwarded To</h2>
+<div class="container-fluid">
+<h2 style="color:white">Forwarded To</h2>
+<div class="row" >
+        <div class="col-md-12 col-md-offset-0">
+            <div class="panel panel-default">
 <table class="table table-stripe">
 	<thead>
-		<tr>
+		<tr class="bg-primary">
 			<th>Date</th>
 			<th>TO</th>
 			<th>Subject</th>
@@ -25,5 +29,13 @@
 				</tr>
 		@endforeach
 	</tbody>
+
+
+
+</div>
+</div>
+</div>
+</table>
+</div>
 
 @endsection

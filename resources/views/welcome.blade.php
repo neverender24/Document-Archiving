@@ -20,6 +20,7 @@
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+                 background-color: #9a0000;
             }
 
             .full-height {
@@ -31,6 +32,7 @@
                 display: flex;
                 justify-content: center;
                  background-color: #323332;
+
             }
 
             .position-ref {
@@ -53,7 +55,7 @@
            
              float: left;
             
-            background-color: #9a0000;
+           
               height: 90vh;
             }
 
@@ -88,8 +90,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vendors.css') }}" rel="stylesheet">
 </head>
+
+
 <body>
-    <div>
+
+        <div>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -104,7 +109,7 @@
                     <!-- Branding Image -->
                     <b><a class="navbar-brand" href="{{ url('#') }}">
                      <!--   {{ config('app.name', 'USEP_CRMS') }} -->
-                     USEP CENTRALIZE RECORD MANAGEMENT SYSYTEM
+                     <p style="color:white">USEP CENTRALIZE RECORD MANAGEMENT SYSYTEM</p>
                     </a></b>
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -120,7 +125,7 @@
                           @if (Route::has('login'))
                
                     @auth
-                        <li><b><a href="{{ url('/home') }}">Home</a></b></li>
+                        <li><a href="{{ url('/home') }}">Home</a></li>
                     @else
                         <li><a href="{{ route('login') }}">Login</a></li>
                     @endauth
@@ -131,11 +136,15 @@
                         
                     </ul>
                 </div>
+               
             </div>
         </nav>
+
         
+         <div class ="sulods">
+
+          </div>
         
-    </div>
 
     
     

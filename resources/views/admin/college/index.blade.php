@@ -1,26 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-<h2>List of Colleges</h2>
+<div class="container-fluid">
+<h2 style="color:white"></h2>
 <a href="{{ route('college.create') }}" class="btn btn-primary"> Add</a>
 <div class="row" >
-        <div class="col-md-10 col-md-offset-0">
+        <div class="col-md-12 col-md-offset-0">
             <div class="panel panel-default">
-<table class="table table-stripe">
+  <div class="panel-heading"><h4><b>List of Colleges</b></h4></div>
+<table class="table table-stripe ">
 	<thead>
-		<tr>
+		<tr class="bg-primary ">
 			<th>Description</th>
 			<th>Prefix</th>
-			<th>Action</th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($data as $d)
 			<tr>
 				<td>{{ $d->description }}</td>
-				<td>{{ $d->prefix }}</td>
-				<td><a href="{{ route('college.edit', $d->id ) }}" class="btn btn-primary"> Edit</a></td>
+				<td>{{ $d->prefix }}
+				<td><a href="{{ route('college.edit', $d->id ) }}" class="btn btn-primary"> Edit</a>
+				</td>
 				<td>
 					<form action="{{ route('college.destroy', $d->id ) }}" method="post">
 						{{ csrf_field() }}

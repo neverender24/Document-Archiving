@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-<h2>Inbox</h2>
+<div class="container-fluid">
+<h2 style="color:white"></h2>
 
 
 <form action="{{ route('inbox.search') }}" method="get" class="form-inline">
@@ -12,19 +12,21 @@
 	<button type="submit" class="btn btn-default pull-left"><span class="fa fa-search"></span></button>
 </form>
 
-<div class="row" >
-        <div class="col-md-10 col-md-offset-0">
+<div class="rowinbox" >
+        <div class="col-md-12 col-md-offset-0">
             <div class="panel panel-default">
-
+ <div class="panel-heading"><h4><b>Inbox</b></h4></div>
 <table class="table table-stripe">
 	<thead>
-		<tr>
+		<tr class="bg-primary">
 			<th>Date</th>
 			<th>From</th>
 			<th>Subject</th>
 			<th>Content</th>
 			<th>Received</th>
-			<th>Action</th>
+			<th></th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,7 +38,7 @@
 					<td>{{ $d->name }}</td>
 					<td>{{ $d->subject }}</td>
 					<td>{{ $d->content }}</td>
-					<td>{{ \Carbon\Carbon::parse($d->received_at)->format('Y-m-d g:i A')  }}</td>
+					<td>{{ $d->received_at }}</td>
 					<td>
 						<form action="{{ route('receive', [$d->document_id, $d->id] ) }}" method="post">
 							{{ csrf_field() }}
@@ -54,9 +56,6 @@
 								disabled
 							@endif
 						"
-						
-						
-						
 						> Attachments</a></td>
 					<td>
 						<form action="{{ route('inbox.destroy', $d->id ) }}" method="post">

@@ -61,7 +61,7 @@ class DocumentController extends Controller
 
     	\Session::flash('success','Document Added');
 
-    	return redirect('/document');
+    	return redirect('/document/'.$create->id.'/attachment');
        
     }
 
@@ -103,6 +103,8 @@ class DocumentController extends Controller
     	return redirect('/document');
     }
 
+
+
     public function destroy($id)
     {
     	$delete = Document::findOrFail($id);
@@ -112,4 +114,9 @@ class DocumentController extends Controller
 
     	return redirect('/document');
     }
+
+
+   
+
+
 }

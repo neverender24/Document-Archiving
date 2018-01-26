@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Add Office</h2>
+<h2 style="color:white">Add Office</h2>
 	<form action="{{ route('office.update', $edit->id) }}" method="post">
 		{{ csrf_field() }}
 		{{ method_field('patch') }}

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Edit Document</h2>
+<h2 style="color:white">Edit Document</h2>
 	<form action="{{ route('document.update', $edit->id) }}" method="post">
 		{{ csrf_field() }}
 		{{ method_field('patch') }}
 		<div class="form-group col-md-12">
-			<label>Category
+			<label style="color:white">Category
 				<select name="category_id" id="category_id" class="form-control">
 					<option value=""></option>
 					@foreach($categories as $id => $description)
@@ -20,7 +20,7 @@
 			</label>
 		</div>
 		<div class="form-group col-md-12">
-			<label>Drawer
+			<label style="color:white">Drawer
 				<select name="drawer_id" id="drawer_id" class="form-control">
 					<option value=""></option>
 					@foreach($drawers as $id => $description)
@@ -34,19 +34,22 @@
 			</label>
 		</div>
 		<div class="form-group col-md-12">
-			<label>Subject
+			<label style="color:white">Subject
 				<input type="text" name="subject" class="form-control" value="{{ old('subject', $edit->subject ) }}">
 			</label>
 		</div>
 		
 		<div class="form-group col-md-12">
-		<label>Content
+		<label style="color:white">Content
+			<!--<textarea  name="content" class="form-control">{{ old('content', $edit->content ) }}</textarea> -->
 			<textarea  name="content" class="form-control">{{ old('content', $edit->content ) }}</textarea>
 		</label>
 		</div>
 		<div class="form-group col-md-12">
-		<label>Confidential
-			<input type="checkbox" name="is_private" class="form-control" value="{{ old('is_private', $edit->is_private ) }}" @if(old('is_private', $edit->is_private)) checked @endif>
+		<label style="color:white">Confidential
+			<!--<input type="checkbox" name="is_private" class="form-control" value="{{ old('is_private', $edit->is_private ) }}" @if(old('is_private', $edit->is_private)) checked @endif>-->
+	<input type="checkbox" name="is_private" class="form-control" value="{{ old('is_private', $edit->is_private ) }}" @if(old('is_private', $edit->is_private)) checked @endif>
+
 		</label>
 		</div>
 		<div class="form-group col-md-5">

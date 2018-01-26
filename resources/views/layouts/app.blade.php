@@ -14,8 +14,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vendors.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div>
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -30,7 +32,7 @@
                     <!-- Branding Image -->
                     <b><a class="navbar-brand" href="{{ url('#') }}">
                      <!--   {{ config('app.name', 'USEP_CRMS') }} -->
-                     USEP CENTRALIZE RECORD MANAGEMENT SYSYTEM
+                     <p style="color:white">USEP CENTRALIZE RECORD MANAGEMENT SYSYTEM</p>
                     </b></a>
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -106,6 +108,13 @@
             @yield('content')
         </div>
     </div>
+</b>
+</div>
+</div>
+</nav>
+</div>
+
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -128,6 +137,7 @@
         $('[data-toggle="tooltip"]').tooltip(); 
     });
     </script>
+
 
 </body>
 </html>

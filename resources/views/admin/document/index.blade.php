@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-<h2>List of Documents</h2>
+<div class="container-fluid">
+<h2 style="color:white"></h2>
 
 
 <form action="{{ route('document.search') }}" method="get" class="form-inline">
@@ -18,12 +18,16 @@
 
 
 <div class="row" >
-        <div class="col-md-10 col-md-offset-0">
+        <div class="col-md-12 col-md-offset-0">
             <div class="panel panel-default">
+ <div class="panel-heading"><h4><b>List of Documents</b></h4>
+ </div>
 
-<table class="table table-stripe">
+
+<table class="table table-stripe ">
 	<thead>
-		<tr>
+
+		<tr class="bg-primary">
 			<th>Subject</th>
 			<th>Content</th>
 			<th>Drawer</th>
@@ -43,6 +47,7 @@
 					<td><a href="{{ url('document?drawer_id='.$d->drawer->id) }}" >{{ $d->drawer->description }}</a></td>
 					<td><a href="{{ url('document?drawer_id='.$d->drawer->category->id) }}" >{{ $d->drawer->category->description }}</a></td>
 					<td>{{ $d->user->name }}</td>
+					
 					<td>{{ \Carbon\Carbon::parse($d->created_at)->format('Y-m-d g:i A') }}</td>
 					<td>
 						<div class="btn-group" role="group" aria-label="Basic example">
@@ -53,12 +58,20 @@
 							  	@if($d->user_id == \Auth::user()->id)
 							  		<a href="{{ route('sending', $d->id) }}" data-toggle="tooltip" title="Send" class="btn btn-primary"><span class="fa fa-send"></span></a>
 							  	
-						  		<a href="{{ route('document.attachment.index', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Attachments"> <span class="fa fa-paperclip"></span></a>
 						  		
+
 						  		<a href="{{ route('log',$d->id) }}" class="btn btn-primary" data-toggle="tooltip" title="Log"><span class="fa fa-history"></span></a>
+
 						  		<a href="{{ route('document.edit', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span></a>
+
 						  	<button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Delete"><span class="fa fa-trash"></span></button>
+
 						  	@endif
+					
+					<a href="{{ route('document.attachment.index', $d->id ) }}" class="btn btn-primary" data-toggle="tooltip" title="Attachments"> <span class="fa fa-paperclip"></span></a>
+						  	
+
+
 						  </form>
 						</div>
 					</td>

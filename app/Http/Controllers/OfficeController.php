@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Office;
 use Illuminate\Http\Request;
+use Response;
 
 class OfficeController extends Controller
 {
@@ -29,16 +30,14 @@ class OfficeController extends Controller
     {
     	$create = Office::create($request->all());
 
-    	\Session::flash('success','Office Added');
-
-    	return redirect('/office');
+    	return Response::json($create);
     }
 
     public function edit(Request $request, $id)
     {
     	$edit = Office::findOrFail($id);
 
-    	return view('admin.office.edit', compact('edit'));
+    	return Response::json($edit);
     }
 
     public function update(Request $request, $id)
@@ -47,9 +46,7 @@ class OfficeController extends Controller
 
     	$update->update($request->all());
 
-    	\Session::flash('success','Office Updated');
-
-    	return redirect('/office');
+        return Response::json($update);
     }
 
     public function destroy($id)
@@ -57,8 +54,6 @@ class OfficeController extends Controller
     	$delete = Office::findOrFail($id);
     	$delete->delete();
 
-    	\Session::flash('success','Office Deleted');
-
-    	return redirect('/office');
+    	return Response::json($delete);
     }
 }

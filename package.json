@@ -19,6 +19,8 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
+    "noty": "^3.2.0-beta",
+    "promise": "^8.0.1",
     "select2": "^4.0.6-rc.1"
   }
 }

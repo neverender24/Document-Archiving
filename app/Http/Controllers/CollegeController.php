@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\College;
 use Illuminate\Http\Request;
+use Response;
 
 class CollegeController extends Controller
 {
@@ -30,16 +31,14 @@ class CollegeController extends Controller
     {
     	$create = College::create($request->all());
 
-    	\Session::flash('success','College Added');
-
-    	return redirect('/college');
+    	return Response::json($create);
     }
 
     public function edit(Request $request, $id)
     {
     	$edit = College::findOrFail($id);
 
-    	return view('admin.college.edit', compact('edit'));
+    	return Response::json($edit);
     }
 
     public function update(Request $request, $id)
@@ -48,9 +47,7 @@ class CollegeController extends Controller
 
     	$update->update($request->all());
 
-    	\Session::flash('success','College Updated');
-
-    	return redirect('/college');
+    	return Response::json($update);
     }
 
     public function destroy($id)
@@ -58,8 +55,7 @@ class CollegeController extends Controller
     	$delete = College::findOrFail($id);
     	$delete->delete();
 
-    	\Session::flash('success','College Deleted');
 
-    	return redirect('/college');
+    	return Response::json($delete);
     }
 }

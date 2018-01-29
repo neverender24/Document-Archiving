@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\College;
 use App\Department;
 use Illuminate\Http\Request;
+use Response;
 
 class DepartmentController extends Controller
 {
@@ -16,9 +17,11 @@ class DepartmentController extends Controller
     
     public function index()
     {
+        $colleges = College::pluck('description','id')->toArray();
+
     	$data = Department::with('college')->get();
 
-    	return view('admin.department.index', compact('data'));
+    	return view('admin.department.index', compact('data','colleges'));
     }
 
     public function create()
@@ -32,9 +35,8 @@ class DepartmentController extends Controller
     {
     	$create = Department::create($request->all());
 
-    	\Session::flash('success','Department Added');
-
-    	return redirect('/department');
+    	
+    	return Response::json($create);
     }
 
     public function edit(Request $request, $id)
@@ -43,7 +45,7 @@ class DepartmentController extends Controller
 
     	$edit = Department::findOrFail($id);
 
-    	return view('admin.department.edit', compact('edit','colleges'));
+    	return Response::json($edit);
     }
 
     public function update(Request $request, $id)
@@ -52,9 +54,8 @@ class DepartmentController extends Controller
 
     	$update->update($request->all());
 
-    	\Session::flash('success','Department Updated');
 
-    	return redirect('/department');
+    	return Response::json($update);
     }
 
     public function destroy($id)
@@ -62,8 +63,7 @@ class DepartmentController extends Controller
     	$delete = Department::findOrFail($id);
     	$delete->delete();
 
-    	\Session::flash('success','Department Deleted');
 
-    	return redirect('/department');
+    	return Response::json($delete);
     }
 }

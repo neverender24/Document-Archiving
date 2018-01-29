@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Response;
 
 class CategoryController extends Controller
 {
@@ -28,16 +29,14 @@ class CategoryController extends Controller
     {
     	$create = Category::create($request->all());
 
-    	\Session::flash('success','Category Added');
-
-    	return redirect('/category');
+    	return $create;
     }
 
     public function edit(Request $request, $id)
     {
     	$edit = Category::findOrFail($id);
 
-    	return view('admin.category.edit', compact('edit'));
+    	return $edit;
     }
 
     public function update(Request $request, $id)
@@ -46,9 +45,7 @@ class CategoryController extends Controller
 
     	$update->update($request->all());
 
-    	\Session::flash('success','Category Updated');
-
-    	return redirect('/category');
+    	return $update;
     }
 
     public function destroy($id)
@@ -56,8 +53,6 @@ class CategoryController extends Controller
     	$delete = Category::findOrFail($id);
     	$delete->delete();
 
-    	\Session::flash('success','Category Deleted');
-
-    	return redirect('/category');
+    	return $delete;
     }
 }

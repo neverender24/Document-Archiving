@@ -8,14 +8,10 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-
-
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
- background-color: #9a0000;
 }
 
 body {
@@ -1785,16 +1781,6 @@ a.bg-warning:focus {
 .bg-danger {
   background-color: #f2dede;
 }
-.bg-row
-{
-
-  background-color: #d63535;
-}
-.text-white
-{
-background-color: #ffff;
-
-}
 
 a.bg-danger:hover,
 a.bg-danger:focus {
@@ -2018,9 +2004,7 @@ pre code {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
- 
 }
-
 
 .container:before,
 .container:after {
@@ -2053,9 +2037,8 @@ pre code {
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .container-fluid:before,
@@ -2069,22 +2052,9 @@ pre code {
 }
 
 .row {
-   margin-top: 20px;
   margin-left: -15px;
   margin-right: -15px;
 }
-
-.rowlog {
-   margin-top: 100px;
-  margin-left: -15px;
-  margin-right: -15px;
-}
-.rowinbox {
-   margin-top: 70px;
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
 
 .row:before,
 .row:after {
@@ -5297,9 +5267,8 @@ tbody.collapse.in {
 .navbar {
   position: relative;
   min-height: 50px;
-
+  margin-bottom: 22px;
   border: 1px solid transparent;
-
 }
 
 .navbar:before,
@@ -5322,7 +5291,6 @@ tbody.collapse.in {
 .navbar-header:after {
   content: " ";
   display: table;
-
 }
 
 .navbar-header:after {
@@ -5459,7 +5427,6 @@ tbody.collapse.in {
   font-size: 18px;
   line-height: 22px;
   height: 50px;
-  color:ffff;
 }
 
 .navbar-brand:hover,
@@ -5493,7 +5460,6 @@ tbody.collapse.in {
 
 .navbar-toggle:focus {
   outline: 0;
-
 }
 
 .navbar-toggle .icon-bar {
@@ -5505,7 +5471,6 @@ tbody.collapse.in {
 
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
-
 }
 
 @media (min-width: 768px) {
@@ -5516,14 +5481,12 @@ tbody.collapse.in {
 
 .navbar-nav {
   margin: 7px -15px;
-
 }
 
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 22px;
-
 }
 
 @media (max-width: 767px) {
@@ -5557,7 +5520,6 @@ tbody.collapse.in {
   .navbar-nav {
     float: left;
     margin: 0;
-
   }
 
   .navbar-nav > li {
@@ -5726,9 +5688,8 @@ tbody.collapse.in {
 }
 
 .navbar-default {
-  
-  background-color: #323332;
-
+  background-color: #fff;
+  border-color: #d3e0e9;
 }
 
 .navbar-default .navbar-brand {
@@ -5742,17 +5703,17 @@ tbody.collapse.in {
 }
 
 .navbar-default .navbar-text {
-  color: #ffff;
+  color: #777;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #ffff;
+  color: #777;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #333;
- 
+  background-color: transparent;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -5836,16 +5797,6 @@ tbody.collapse.in {
 .navbar-default .btn-link:focus {
   color: #333;
 }
-.sulods
-{
-  background: url("/images/bg.jpg");
- 
-  width: 1366px;
-   height: 611px;
-
-
-}
-
 
 .navbar-default .btn-link[disabled]:hover,
 .navbar-default .btn-link[disabled]:focus,
@@ -6334,7 +6285,6 @@ a.badge:focus {
   border-radius: 6px;
   padding-left: 15px;
   padding-right: 15px;
-
 }
 
 .jumbotron .container {
@@ -6905,7 +6855,6 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-
 }
 
 .panel-heading > .dropdown .dropdown-toggle {
@@ -7170,7 +7119,7 @@ button.list-group-item-danger.active:focus {
   color: #333333;
   background-color: #fff;
   border-color: #d3e0e9;
-} 
+}
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #d3e0e9;
